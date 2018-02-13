@@ -1,5 +1,7 @@
-prog1: testsim.c runsim.c
-	gcc -o prog testsim.c runsim.c -I. 
+all: runsim
+
+runsim: runsim.c makeargv.c
+	gcc -o runsim runsim.c makeargv.c 
 #
 #testsim.o: testsim.c runsim.h
 #	gcc -c testsim.c -I.
