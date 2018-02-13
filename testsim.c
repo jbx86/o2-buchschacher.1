@@ -3,6 +3,6 @@
 #include <unistd.h>
 
 int main (int argc, char *argv[]) {
-	printf("Test run\n");
+	printf("Test Run\n");
 	return 0;
 }
