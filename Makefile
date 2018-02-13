@@ -1,2 +1,2 @@
-all:
-	gcc -o runsim.c runsim
+runsim:
+	gcc runsim.c -o runsim
