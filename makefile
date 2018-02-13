@@ -1,5 +1,8 @@
-prog1: testsim.o
-	gcc -o testsim testsim.o 
-
-testsim.o: testsim.c
-	gcc -c testsim.c
+prog1: testsim.c runsim.c
+	gcc -o prog testsim.c runsim.c -I. 
+#
+#testsim.o: testsim.c runsim.h
+#	gcc -c testsim.c -I.
+#
+#runsim.o: runsim.c runsim.h
+#	gcc -c runsim.c -I.
