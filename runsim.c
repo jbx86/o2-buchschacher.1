@@ -2,16 +2,27 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-int main(int argc, char *argv[]) {
-	pid_t childpid = 0;
-	int i, n;
+void perror(const char *s);
 
-	if (argc != 2) { //Check for valid number of command-line arguments
-		fprintf(stderr, "Usage: %s processes\n", argv[0]);
+int main(int argc, char *argv[]) {
+	// int pr_limit = 10;	//Max number of children running at one time
+	int pr_count = 0;	//Number of active children
+
+	pid_t childpid = 0;
+	int i;
+
+	//check for walid number of command-line arguments
+	if (argc != 3) {
+		fprintf(stderr, "%s: ", argv[0]);
+		perror("Error");
 		return 1;
 	}
-	n = atoi(argv[1]);
-	
+	int n = atoi(argv[2]);
+	int pr_limit = atoi(argv[1]);
+
+	//perror("Error");
+	fprintf(stderr, "pr_limit:%d n:%d\n", pr_limit, n);
+
 	for (i = 1; i < n; i++)
 		if ((childpid = fork()) <= 0)
 			break;
