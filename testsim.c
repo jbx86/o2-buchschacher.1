@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <runsim.h>
 
-int main (int argc, char *argv[]) {
-	printf("Test Run\n");
-	runsim(3);
-	printf("Test complete\n");
-	return 0;
+int makeargv(const char *source, const char *delimiters, char ***argvp);
+
+int main(int argc, char *argv[]) {
+	if (argc < 2) {
+		fprintf(stderr, "Usage: %s number\n", argv[0]);
+		return 1;
+	}
 }
