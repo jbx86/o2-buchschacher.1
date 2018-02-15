@@ -1,4 +1,4 @@
-all: runsim
+all: runsim testsim
 
 runsim: runsim.c makeargv.c
 	gcc -o runsim runsim.c makeargv.c 

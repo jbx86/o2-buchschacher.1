@@ -14,6 +14,7 @@ int main (int argc, char *argv[]) {
 	char delims[] = " \t";
 	char **myargv;
 
+	fprintf(stderr, "running\n");
 
 	// 1) take one command-line argument
 	if (argc != 2) {
@@ -28,14 +29,15 @@ int main (int argc, char *argv[]) {
 		return 1;
 	}
 
+	fprintf(stderr, "Argument recived: %d\n", pr_limit);
 	// 4) initialize pr_count
 	pr_count = 0;
 
 	// 5) execute loop until end-of-file, 5b) read a line from stdin...
 	while (fgets(str, MAX_CANON, stdin) != NULL) {
 
-		fprintf(stderr, "input from stdin: %s\n", str);
-
+		fprintf(stderr, "input from stdin: %s", str);
+/*
 		// 5a) wait for child to finish and decrament count
 		if (pr_count == pr_limit) {
 			wait(NULL);
@@ -68,7 +70,7 @@ int main (int argc, char *argv[]) {
 		do {
 			childpid = wait(NULL);
 		} while (1);
-		
+		*/
 	}
 
 //	fprintf(stderr, "i:%d process ID:%ld parent ID:%ld child ID:%ld\n", i, (long)getpid(), (long)getppid(), (long)childpid);
