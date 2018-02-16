@@ -15,19 +15,23 @@ int main (int argc, char *argv[]) {
 	char str[MAX_CANON] = "null";
 	char delims[] = " \t\n";
 	char **myargv;
+	int i;
+	int c;
+	char *nvalue = NULL;
 
-	fprintf(stderr, "running\n");
-
-	// 1) take one command-line argument
-	if (argc != 2) {
-		fprintf(stderr, "Usage: %s processes\n", argv[0]);
-		return 1;
+	// find -n flag
+	while ((c = getopt(argc, argv, "n:")) != -1) {
+		switch (c) {
+			case 'n':
+				nvalue = optarg;
+				break;
+		}
 	}
 
-	// 2) initialize pr_limit from command line
-	pr_limit = atoi(argv[1]);
+	// pass n value to pr_limit and check validity
+	pr_limit = atoi(nvalue);
 	if (pr_limit < 1) {
-		fprintf(stderr, "Argument must be an int > 0\n");
+		fprintf(stderr, "Usage: %s -n proces_limit\t(process_limit > 0)", argv[0]);
 		return 1;
 	}
 

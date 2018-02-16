@@ -22,8 +22,8 @@ int main(int argc, char *argv[]) {
 
 	// run loop rf times
 	for (i = 0; i < rf; i++) {
-		fprintf(stderr, "%ld", (long)getpid());
-		fprintf(stderr, "\n");
+		sleep(st);
+		fprintf(stderr, "%ld\n", (long)getpid());
 	}
 
 	return 0;
