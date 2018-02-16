@@ -1,1 +1,5 @@
-This runsim program will take one command-line argument specifying the maximum number of simultaneous executions
+Runsim.c Readme
+
+Runsim will be executed as "runsim -n max_processes" and will execute the process fan program from Exersise 3.9 from Robins/Robins. max_processes should be a number > 0. The program is intended to take input from stdin and parse the text into commands to execute as children of runsim, but I encounted issues when trying to direct the arguents parsed by makeargv into execvp (There is a comment line in runsim.c indicating where execvp should go). Aside from this issue I believe the program is doing everything expected of it.
+
+Joey Buchschacher 
